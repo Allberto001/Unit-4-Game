@@ -5,13 +5,141 @@
     
     <title>RPG</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Shojumaru" rel="stylesheet">
 
-    <script src="main.js"></script>
 </head>
 <body>
+    <header class="header">
+        <h1>Welcome To The Soul Society</h1>
+    </header>
+
+    <h2 id="h2">Are You Ready To Become A Soul Reaper?</h2>
+
+    <div class="selection"><h3>Choose Your Zanpakuto</h3>
+     
+      
+    <div id="char1"><p>Senbonzakura</p><img id="senbonzakura" src="assets/images/senbonzakura.jpg" hp="170" atk="15" counter="40" alt="senbonzakura"><p>HP:170</p></div>
+    <div id="char2"><p>Sode-no-shirayuki</p><img id="sode-no-shirayuki" src="assets/images/sode-no-shirayuki.jpg" hp="150" atk="25" counter="30" alt="sode-no-shirayuki"><p>HP:150</p></div>
+    <div id="char3"><p>Zabimaru</p><img id="Zabimaru" src="assets/images/Zabimaru.jpg" hp="200" atk="10" counter="15" alt="Zabimaru"><p>HP:200</p></div>
+    <div id="char4"><p>hyorinmaru</p><img id="hyorinmaru" src="assets/images/hyorinmaru.jpg" hp="160" atk="20" counter="20" alt="hyorinmaru"><p>HP:160</p></div>
+
+
+    </div>
     
+    <div class="yourcharacter">
+        <h3>Your Zanpakuto</h3>
+    </div>
+
+    <div class="Enemy">
+        <h3>Choose Your Enemy</h3>
+    </div>
+
+    <div class="Fight">
+            <h3>Battle Arena</h3>
+            <button id="attack" type="button">Attack!</button>
+        </div>
+
+            <div class="defender">
+                    <h3>Defender</h3>
+                </div>
+<script>
     
+$(document).ready(function() {
+    //var charchoice = $("#char1", "#char2", "#char3", "#char4");
+    var zakura ={ name: $("#char1"),
+                  hp: 170,
+                  atck: 15 };
+    var sode = { name: $("#char2"),
+                  hp: 150,
+                  atck: 25 };
+    var zabi = { name: $("#char3"),
+                  hp: 200,
+                  atck: 10 };
+    var hyorin = { name: $("#char4"),
+                  hp: 160,
+                  atck: 20 };
+    var selectedchar = [];
+    var defendingchar = [];
+
+zakura.name.click(function() {
+    // will send the selected character to the .yourcharacter div
+  $( this ).appendTo(".yourcharacter");
+
+     // console.log(selectedCharacter);
+      if(zakura.name.appendTo(".yourcharacter")){
+    sode.name.appendTo(".Enemy");
+    zabi.name.appendTo(".Enemy");
+    hyorin.name.appendTo(".Enemy");
+  }
+  });
+  sode.name.click(function() {
+    // will send the selected character to the .yourcharacter div
+  $( this ).appendTo(".yourcharacter");
+
+     // this will send the rest of the character tha wasnt selected to the ".enemy"
+      if(sode.name.appendTo(".yourcharacter")){
+    zakura.name.appendTo(".Enemy");
+    zabi.name.appendTo(".Enemy");
+    hyorin.name.appendTo(".Enemy");
+  }
+  });
+  zabi.name.click(function() {
+    // will send the selected character to the .yourcharacter div
+  $( this ).appendTo(".yourcharacter");
+
+     // console.log(selectedCharacter);
+      if(zabi.name.appendTo(".yourcharacter")){
+    sode.name.appendTo(".Enemy");
+    zakura.name.appendTo(".Enemy");
+    hyorin.name.appendTo(".Enemy");
+  }
+  });
+  hyorin.name.click(function() {
+    // will send the selected character to the .yourcharacter div
+  $( this ).appendTo(".yourcharacter");
+
+     // console.log(selectedCharacter);
+      if(hyorin.name.appendTo(".yourcharacter")){
+    sode.name.appendTo(".Enemy");
+    zabi.name.appendTo(".Enemy");
+    zakura.name.appendTo(".Enemy");
+  }
+  });
+
+  // if sode is your selected character then you can choose to fight zakura, zabi, and hyorin 
+ zakura.name.click(function() {
+
+      if(zakura.name.appendTo(".Enemy") && zabi.name.appendTo(".Enemy") &&  hyorin.name.appendTo(".Enemy") && sode.name.appendTo(".yourcharacter")){
+    zakura.name.appendTo(".defender");
+    
+  }
+  });
+zabi.name.click(function() {
+
+if(zabi.name.appendTo(".Enemy") && zakura.name.appendTo(".Enemy") &&  hyorin.name.appendTo(".Enemy") && sode.name.appendTo(".yourcharacter")){
+zabi.name.appendTo(".defender");
+}
+});
+hyorin.name.click(function() {
+
+if(zabi.name.appendTo(".Enemy") && zakura.name.appendTo(".Enemy") &&  hyorin.name.appendTo(".Enemy") && sode.name.appendTo(".yourcharacter")){
+hyorin.name.appendTo(".defender");
+}
+});
+
+$("#attack").on("click", function(){
+
+   if($(".defender").children().length !== 0){
+     
+   }
+});
+
+    
+});
+</script>        
+            
 </body>
 </html>
